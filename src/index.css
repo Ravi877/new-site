@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Blog Design System - Clean, minimalistic design
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core Colors - Minimalistic Blog Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+    
+    /* Content Colors */
+    --content-primary: 0 0% 13%;
+    --content-secondary: 0 0% 45%;
+    --content-muted: 0 0% 65%;
+    
+    /* Interactive Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --card-border: 0 0% 93%;
+    
+    /* Accent Colors */
+    --accent-primary: 210 11% 96%;
+    --accent-primary-foreground: 0 0% 13%;
+    --accent-hover: 210 17% 92%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-button: 0 2px 4px 0 hsl(0 0% 0% / 0.08);
+    
+    /* Borders & Radius */
+    --border: 0 0% 93%;
+    --border-input: 0 0% 89%;
+    --ring: 0 0% 13%;
+    --radius: 0.5rem;
+    --radius-button: 0.75rem;
+    
+    /* Typography Scale */
+    --font-heading: "Inter", sans-serif;
+    --font-body: "Merriweather", serif;
+    --font-ui: "Inter", sans-serif;
+    
+    /* Layout */
+    --content-width: 65ch;
+    --container-padding: 1.5rem;
+    
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Legacy support for shadcn components */
+    --primary: 0 0% 13%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 11% 96%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 210 11% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 210 11% 96%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    --input: 0 0% 89%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-ui;
+  }
+  
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  
+  p, article, blockquote {
+    @apply font-body;
+  }
+}
+
+@layer utilities {
+  /* Line clamp utility for truncating text */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Smooth transitions for interactive elements */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--transition-normal);
+    transition-duration: var(--transition-normal);
+  }
+}
